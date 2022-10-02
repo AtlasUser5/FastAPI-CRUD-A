@@ -1,0 +1,48 @@
+{
+    "configurations": [
+        {
+            "name": "Python: FastAPI",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "backend.apis.fastapi.main:api",
+                "--reload"
+            ],
+            "jinja": true,
+            "justMyCode": true,
+            "presentation": {
+                "hidden": true,
+                "group": "",
+                "order": 1
+            }
+        },
+        {
+            "name": "Launch Edge",
+            "request": "launch",
+            "type": "msedge",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                // "http://localhost:8000",
+                "http://localhost:8000/docs",
+                // "http://localhost:8000/redoc"
+            ],
+            "presentation": {
+                "hidden": true,
+                "group": "",
+                "order": 1
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch FastAPI at Edge",
+            "configurations": [
+                "Python: FastAPI",
+                "Launch Edge"
+            ],
+            "stopAll": true
+        }
+    ],
+    "version": "0.2.0"
+}
